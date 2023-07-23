@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stddef.h>
 
 int BinarySearch(int array[], size_t array_size, int element) {
   /*
