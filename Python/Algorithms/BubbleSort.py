@@ -5,8 +5,8 @@ def BubbleSort(array: list):
     The algorithm, which is a comparison sort, is named for the way the larger elements "bubble" up to the top of the list.
 
     Time Complexity: - Worst Case:   O(n^2) (quadratic)
-                                 - Average Case: O(n^2) (quadratic)
-                                 - Best Case:    O(n)   (linear) {Only if it's optimized for the best case scenario}
+                     - Average Case: O(n^2) (quadratic)
+                     - Best Case:    O(n)   (linear) {Only if it's optimized for the best case scenario}
 
 
     Space Complexity: - All Cases:   O(1)   (constant) {In place}
