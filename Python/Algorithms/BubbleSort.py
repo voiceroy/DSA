@@ -16,9 +16,9 @@ def BubbleSort(array: list):
         for j in range(0, len(array)-1-i): # After each iteration last i elements will be sorted.
             swapped = False # Optimise for best case
 
-        if array[j] > array[j+1]: # Swap the elements
-            array[j], array[j+1] = array[j+1], array[j]
-            swapped = True # We swapped an element
+            if array[j] > array[j+1]: # Swap the elements
+                array[j], array[j+1] = array[j+1], array[j]
+                swapped = True # We swapped an element
 
-        if not swapped: # Best case optimisation, no elements swapped, so array is sorted.
-            break
+            if not swapped: # Best case optimisation, no elements swapped, so array is sorted.
+                break
