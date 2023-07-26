@@ -13,16 +13,16 @@ func BubbleSort(array []int) {
 		Space Complexity: - All Cases:   O(1)   (constant) {In place}
 	*/
 
-	for i := 0; i < len(array); i++ { // As after each iteration only the last i items are in the correct order, to correctly sort all the N items in ascending order, loop N times
-		for j := 0; j < len(array)-i-1; j++ { // Go over all the elements upto N - 1 - i, swapping any unordered adjacent elements, which results in `N-1-i`th element being in the correct order.
-			swapped := false
+	for i := 0; i < len(array); i++ { // Access each element
+		swapped := false
+		for j := 0; j < len(array)-i-1; j++ { // Compare adjacent elements
 			if array[j] > array[j+1] {
 				array[j], array[j+1] = array[j+1], array[j] // Swap the values
 				swapped = true                              // We swapped a element
 			}
-			if !swapped { // Improve the best case time complexity
-				break // No swaps were performed, therefore the array is sorted, hence exit the loop
-			}
+		}
+		if !swapped { // Improve the best case time complexity
+			break // No swaps were performed, therefore the array is sorted, exit the loop
 		}
 	}
 }
