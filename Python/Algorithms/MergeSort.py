@@ -23,7 +23,7 @@ def MergeSort(array: list) -> list:
                      - Average Case:	O(nlog(n)) (linear logarithmic)
                      - Best Case:		O(nlog(n)) (linear logarithmic)
 
-    Space Complexity: - All Cases:		O(n)       (linear) {Destructive sort}
+    Space Complexity: - All Cases:		O(n)       (linear)
     """
 
     # Base case. A list of 1 or 0 elements is sorted
