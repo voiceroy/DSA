@@ -21,12 +21,11 @@ func QuickSort(array []int) []int {
 
 	// Naive implementation of the algorithm. Not implementing the other optimized versions.
 	var pivot = array[len(array)-1]
-	array = array[:len(array)-1]
 
 	var lessThan = make([]int, 0, len(array))
 	var greaterThan = make([]int, 0, len(array))
 
-	for _, v := range array {
+	for _, v := range array[:len(array)-1] {
 		if v > pivot {
 			greaterThan = append(greaterThan, v)
 		} else {
