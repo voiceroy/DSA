@@ -11,7 +11,7 @@ def InsertionSort(array: list):
     """
 
     for i in range(len(array)):
-        # Divide the array into two parts, sorted (array[ : i]) and unsorted (array[i+1 : ])
+        # Divide the array into two parts, sorted (array[ : i]) and unsorted (array[i + 1 : ])
         j = i - 1
 
         # Progressively place the last element in the sorted list in the correct place

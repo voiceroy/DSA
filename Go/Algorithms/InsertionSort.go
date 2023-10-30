@@ -13,7 +13,9 @@ func InsertionSort(array []int) {
 	*/
 
 	for i := range array {
+		// Divide the array into two parts, sorted (array[ : i]) and unsorted (array[i + 1: ])
 		for j := i - 1; j >= 0 && array[j] > array[j+1]; j-- {
+			//Progressively place the last element in the sorted list in the correct place
 			var temp = array[j]
 			array[j] = array[j+1]
 			array[j+1] = temp
