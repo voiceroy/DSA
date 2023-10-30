@@ -10,7 +10,7 @@ def InsertionSort(array: list):
     Space Complexity: - All Cases:    O(1)   (constant) {In place}
     """
 
-    for i in range(1, len(array)):
+    for i in range(len(array)):
         # Divide the array into two parts, sorted (array[ : i]) and unsorted (array[i+1 : ])
         j = i - 1
 
