@@ -125,7 +125,7 @@ class LinkedList:
         self.length -= 1
 
         # Special case of removal at tail
-        if i == self.length:
+        if currentNode.next is None:
             self.tail = currentNode
 
         return node.value
