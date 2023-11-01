@@ -89,7 +89,7 @@ func (ll *linkedList) InsertBetween(index uint, value int) error {
 
 	newNode.next = currentNode.next
 	currentNode.next = &newNode
-
+	ll.length++
 	return nil
 }
 
