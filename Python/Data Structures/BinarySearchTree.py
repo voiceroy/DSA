@@ -23,9 +23,12 @@
 
 
 class Node:
-    def __init__(self, value, parent=None):
+    def __init__(
+        self,
+        value,
+    ):
         self.value = value
-        self.parent = parent
+        self.parent = None
         self.left = None
         self.right = None
 
