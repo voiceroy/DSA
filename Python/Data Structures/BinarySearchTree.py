@@ -152,26 +152,27 @@ class BST:
 
         return predecessor
 
-    def insert(self, value) -> Node:
+    def insert(self, node: Node) -> Node:
         """
         Inserts a node in the tree with the value `value` and return the inserted node.
         """
         # The tree is empty, insert a root node with `value`
         if self.root is None:
-            self.root = Node(value)
+            self.root = node
         else:
             currentNode = self.root
 
             while currentNode:
                 # Go left
-                if value <= currentNode.value:
+                if node.value <= currentNode.value:
                     # Current node has a left child, go down
                     if currentNode.left is not None:
                         currentNode = currentNode.left
                     # Current node has no left child, insert here
                     else:
-                        currentNode.left = Node(value, currentNode)
-                        return currentNode.left
+                        currentNode.left = node
+                        currentNode.left.parent = currentNode
+                        break
                 # Go right
                 else:
                     # Current node has a right child, go down
@@ -179,13 +180,17 @@ class BST:
                         currentNode = currentNode.right
                     # Current node has no right child, insert here
                     else:
-                        currentNode.right = Node(value, currentNode)
-                        return currentNode.right
+                        currentNode.right = node
+                        currentNode.right.parent = currentNode
+                        break
+
+            return node
 
     def _shiftNodes(self, replace: Node, replaceWith: Node):
         """
         Helper function for deleting nodes.
-        Only shifts the replaceWith to replace's place. Nothing else
+        Only shifts the replaceWith to replace's place and sets replaceWith parent to replace's parent.
+        Nothing else
         """
         # We are shifting the root, the only node with no parent
         if replace.parent is None:
