@@ -37,7 +37,7 @@ type LinkedList struct {
 }
 
 func MakeLinkedList() *LinkedList {
-	// Instantiate a empty linked list
+	// Instantiate an empty linked list
 	return &LinkedList{nil, nil, 0}
 }
 
@@ -49,7 +49,7 @@ func (ll *LinkedList) Len() uint {
 func (ll *LinkedList) Get(index uint) (int, error) {
 	// Returns a value at index i if exists or None
 	if index < 0 || index >= ll.length {
-		return 0, errors.New("Out of bounds")
+		return 0, errors.New("out of bounds")
 	}
 	var currentNode = ll.head
 
@@ -77,7 +77,7 @@ func (ll *LinkedList) InsertHead(value int) {
 func (ll *LinkedList) InsertBetween(index uint, value int) error {
 	// Insert between the elements of the linked list
 	if index < 0 || index >= ll.length {
-		return errors.New("Out of bounds")
+		return errors.New("out of bounds")
 	}
 
 	var currentNode = ll.head
@@ -110,7 +110,7 @@ func (ll *LinkedList) InsertTail(value int) {
 func (ll *LinkedList) Remove(index uint) (int, error) {
 	// Removes the element at index i if exists else None
 	if index < 0 || index >= ll.length {
-		return 0, errors.New("Out of bound")
+		return 0, errors.New("out of bound")
 	}
 
 	// Special case of removal at head
