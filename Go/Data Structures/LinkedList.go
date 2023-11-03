@@ -30,23 +30,23 @@ type node struct {
 	next  *node
 }
 
-type linkedList struct {
+type LinkedList struct {
 	head   *node
 	tail   *node
 	length uint
 }
 
-func MakeLinkedList() *linkedList {
+func MakeLinkedList() *LinkedList {
 	// Instantiate a empty linked list
-	return &linkedList{nil, nil, 0}
+	return &LinkedList{nil, nil, 0}
 }
 
-func (ll *linkedList) Len() uint {
+func (ll *LinkedList) Len() uint {
 	// Returns the length of the linked list
 	return ll.length
 }
 
-func (ll *linkedList) Get(index uint) (int, error) {
+func (ll *LinkedList) Get(index uint) (int, error) {
 	// Returns a value at index i if exists or None
 	if index < 0 || index >= ll.length {
 		return 0, errors.New("Out of bounds")
@@ -60,7 +60,7 @@ func (ll *linkedList) Get(index uint) (int, error) {
 	return currentNode.value, nil
 }
 
-func (ll *linkedList) InsertHead(value int) {
+func (ll *LinkedList) InsertHead(value int) {
 	// Insert at the beginning of the linked list
 	var newNode = node{value, nil}
 
@@ -74,7 +74,7 @@ func (ll *linkedList) InsertHead(value int) {
 	ll.length++
 }
 
-func (ll *linkedList) InsertBetween(index uint, value int) error {
+func (ll *LinkedList) InsertBetween(index uint, value int) error {
 	// Insert between the elements of the linked list
 	if index < 0 || index >= ll.length {
 		return errors.New("Out of bounds")
@@ -93,7 +93,7 @@ func (ll *linkedList) InsertBetween(index uint, value int) error {
 	return nil
 }
 
-func (ll *linkedList) InsertTail(value int) {
+func (ll *LinkedList) InsertTail(value int) {
 	// Inserts at the tail of the linked list
 	var newNode = node{value, nil}
 
@@ -107,7 +107,7 @@ func (ll *linkedList) InsertTail(value int) {
 	ll.length++
 }
 
-func (ll *linkedList) Remove(index uint) (int, error) {
+func (ll *LinkedList) Remove(index uint) (int, error) {
 	// Removes the element at index i if exists else None
 	if index < 0 || index >= ll.length {
 		return 0, errors.New("Out of bound")
@@ -146,7 +146,7 @@ func (ll *linkedList) Remove(index uint) (int, error) {
 	return node.value, nil
 }
 
-func (ll *linkedList) GetValues() []int {
+func (ll *LinkedList) GetValues() []int {
 	// Returns the contents of the linked list in array
 	var currentNode = ll.head
 	var array = make([]int, 0, ll.length)
