@@ -18,7 +18,7 @@ func merge(left, right []int) []int {
 		}
 	}
 
-	if len(left) == 0 {
+	if len(left) == l {
 		return append(result, right[r:]...)
 	}
 
