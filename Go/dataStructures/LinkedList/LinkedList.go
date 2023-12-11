@@ -51,8 +51,8 @@ func (ll *LinkedList) Get(index uint) (int, error) {
 	if index < 0 || index >= ll.length {
 		return 0, errors.New("out of bounds")
 	}
-	var currentNode = ll.head
 
+	var currentNode = ll.head
 	for i := uint(0); i < index; i++ {
 		currentNode = currentNode.next
 	}
@@ -63,7 +63,6 @@ func (ll *LinkedList) Get(index uint) (int, error) {
 func (ll *LinkedList) InsertHead(value int) {
 	// Insert at the beginning of the linked list
 	var newNode = node{value, nil}
-
 	if ll.head == nil {
 		ll.head = &newNode
 		ll.tail = ll.head
@@ -82,7 +81,6 @@ func (ll *LinkedList) InsertBetween(index uint, value int) error {
 
 	var currentNode = ll.head
 	var newNode = node{value, nil}
-
 	for i := uint(0); i < index-1; i++ {
 		currentNode = currentNode.next
 	}
@@ -96,7 +94,6 @@ func (ll *LinkedList) InsertBetween(index uint, value int) error {
 func (ll *LinkedList) InsertTail(value int) {
 	// Inserts at the tail of the linked list
 	var newNode = node{value, nil}
-
 	if ll.tail == nil {
 		ll.head = &newNode
 		ll.tail = ll.head
@@ -104,6 +101,7 @@ func (ll *LinkedList) InsertTail(value int) {
 		ll.tail.next = &newNode
 		ll.tail = &newNode
 	}
+
 	ll.length++
 }
 
@@ -149,8 +147,8 @@ func (ll *LinkedList) Remove(index uint) (int, error) {
 func (ll *LinkedList) GetValues() []int {
 	// Returns the contents of the linked list in array
 	var currentNode = ll.head
-	var array = make([]int, 0, ll.length)
 
+	var array = make([]int, 0, ll.length)
 	for currentNode != nil {
 		array = append(array, currentNode.value)
 		currentNode = currentNode.next
