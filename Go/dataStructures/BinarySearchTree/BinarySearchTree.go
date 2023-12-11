@@ -1,4 +1,4 @@
-package dataStructures
+package binarysearchtree
 
 type TreeNode struct {
 	Value  int
@@ -26,9 +26,9 @@ func (bstree *BST) Depth(node *TreeNode) int {
 	for currentNode != nil {
 		if currentNode.Value == node.Value {
 			return currentDepth
-		} else if node.Value <= currentNode.Value {
+		} else if node.Value < currentNode.Value {
 			currentNode = currentNode.Left
-		} else {
+		} else if node.Value > currentNode.Value {
 			currentNode = currentNode.Right
 		}
 		currentDepth++
@@ -54,12 +54,13 @@ func (bstree *BST) Search(node *TreeNode) *TreeNode {
 	for currentNode != nil {
 		if node.Value == currentNode.Value {
 			return currentNode
-		} else if node.Value <= currentNode.Value {
+		} else if node.Value < currentNode.Value {
 			currentNode = currentNode.Left
-		} else {
+		} else if node.Value > currentNode.Value {
 			currentNode = currentNode.Right
 		}
 	}
+
 	return nil
 }
 
@@ -85,7 +86,7 @@ func (bstree *BST) Successor(node *TreeNode) *TreeNode {
 	}
 
 	var successor = node.Parent
-	for successor != nil && successor == successor.Parent.Right {
+	for successor != nil && node == successor.Right {
 		node = successor
 		successor = successor.Parent
 	}
@@ -99,7 +100,7 @@ func (bstree *BST) Predecessor(node *TreeNode) *TreeNode {
 	}
 
 	var predecessor = node.Parent
-	for predecessor != nil && predecessor == predecessor.Parent.Left {
+	for predecessor != nil && node == predecessor.Left {
 		node = predecessor
 		predecessor = predecessor.Parent
 	}
@@ -115,7 +116,7 @@ func (bstree *BST) Insert(node *TreeNode) *TreeNode {
 		var currentNode = bstree.Root
 
 		for currentNode != nil {
-			if node.Value <= currentNode.Value {
+			if node.Value < currentNode.Value {
 				if currentNode.Left != nil {
 					currentNode = currentNode.Left
 				} else {
@@ -126,7 +127,6 @@ func (bstree *BST) Insert(node *TreeNode) *TreeNode {
 			} else {
 				if currentNode.Right != nil {
 					currentNode = currentNode.Right
-
 				} else {
 					currentNode.Right = node
 					currentNode.Right.Parent = currentNode
@@ -134,6 +134,7 @@ func (bstree *BST) Insert(node *TreeNode) *TreeNode {
 				}
 			}
 		}
+
 		return node
 	}
 }
@@ -164,7 +165,6 @@ func (bstree *BST) Delete(node *TreeNode) *TreeNode {
 			bstree.shiftNodes(currentNode, currentNode.Left)
 		} else {
 			var successor = bstree.Successor(currentNode)
-
 			if successor.Parent != currentNode {
 				bstree.shiftNodes(successor, successor.Right)
 				successor.Right = currentNode.Right
@@ -175,6 +175,7 @@ func (bstree *BST) Delete(node *TreeNode) *TreeNode {
 			successor.Left = currentNode.Left
 			successor.Left.Parent = successor
 		}
+
 		return currentNode
 	}
 }
