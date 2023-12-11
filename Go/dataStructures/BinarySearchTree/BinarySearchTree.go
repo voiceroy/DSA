@@ -1,5 +1,28 @@
 package binarysearchtree
 
+/*
+		In computer science, a binary search tree (BST), also called an ordered or sorted binary tree,
+		is a rooted binary tree data structure with the key of each internal node being greater than all
+		the keys in the respective node's left subtree and less than the ones in its right subtree.
+		The time complexity of operations on the binary search tree is linear with respect to the height of the tree.
+		The performance of a binary search tree is dependent on the order of insertion of the nodes into the tree since
+		arbitrary insertions may lead to degeneracy; several variations of the binary search tree can be built with guaranteed worst-case performance.
+		The basic operations include: search, traversal, insert and delete. BSTs with guaranteed worst-case complexities perform better than an unsorted array,
+		which would require linear search time.
+
+		Time Complexity: - Worst Case {Degenerate Tree}:
+	  					 	- Search: O(n)      (linear)
+	  					 	- Insert: O(n)      (linear)
+	  					 	- Delete: O(n)      (linear)
+
+	  					 - Average Case {Non-Degenerate Tree}:
+	  						- Search: O(log(n)) (logarithmic)
+	  						- Insert: O(log(n)) (logarithmic)
+	  						- Delete: O(log(n)) (logarithmic)
+
+		Space Complexity: - All Cases: O(n)      (linear)
+*/
+
 type TreeNode struct {
 	Value  int
 	Parent *TreeNode
